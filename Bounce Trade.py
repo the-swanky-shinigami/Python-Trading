@@ -119,7 +119,7 @@ def create_scrip_dataframe(data, ema_periods, stochastic_periods, adx_period, at
             data['Close'].iloc[i] >= (data['EMA_21'].iloc[i] - data['ATR'].iloc[i]) and
             data['Close'].iloc[i] <= (data['EMA_21'].iloc[i] + data['ATR'].iloc[i]) and
             # 'Close' of entry date has to be greater than 'High' of the lowest 'Close' of the preceding 4 days
-            data['Close'].iloc[i] > data['High'].iloc[data['Close'].iloc[i-4:i].idxmin()]): #Entry Condition
+            data['Close'].iloc[i] > data['High'].iloc[data['Close'].iloc[i-4:i].argmin()]): #Entry Condition
             #data['Close'].iloc[i] > data['Low'].iloc[i-4:i].min()):  # Entry condition
 
             if not active_trade:
@@ -139,7 +139,7 @@ def create_scrip_dataframe(data, ema_periods, stochastic_periods, adx_period, at
               data['Close'].iloc[i] >= (data['EMA_21'].iloc[i] - data['ATR'].iloc[i]) and
               data['Close'].iloc[i] <= (data['EMA_21'].iloc[i] + data['ATR'].iloc[i]) and
               # 'Close' of the entry date has to be lower than the 'Low' of the highest 'Close' of the preceding 4 days
-              data['Close'].iloc[i] < data['Low'].iloc[data['Close'].iloc[i-4:i].idxmax()]): #Entry Condition
+              data['Close'].iloc[i] < data['Low'].iloc[data['Close'].iloc[i-4:i].argmax()]): #Entry Condition
               #data['Close'].iloc[i] < data['High'].iloc[i-4:i].max()):  # Entry condition
 
             if not active_trade:
