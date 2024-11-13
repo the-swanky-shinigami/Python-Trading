@@ -1,1 +1,1 @@
-The bounce trade code is not yet fully functional and I am still working on it
+Some trading strategies and backtesting I implemented in python while doing my Internship as a Data Analyst.
